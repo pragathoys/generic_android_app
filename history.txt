@@ -1,0 +1,12 @@
+-= v0.1 =-
+1. Options Menu
+2. About page
+3.Settings Page
+4. Localisation
+
+-= v0.0 =-
+ 
+1. Skeleton of an android app
+2. install on a 2.3 Gingerbread android phone
+3. unistall
+4. simple text message
