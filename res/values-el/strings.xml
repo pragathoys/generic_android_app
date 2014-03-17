@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="author_name">Ιωάννης Μαρούντας</string>
+    <string name="app_name">Γενική Εφαρμογή για Android</string>    
+    <string name="app_description">Εδώ μπαίνει μια σύντομη περιγραφή για την εφαρμογή. Ποιό είναι το πεδίο εφαρμογών της και που απευθύνεται.</string>    
+    
+    <string name="welcome_msg">Καλώς ήλθατε!</string>    
+    <string name="about_msg">Σχετικά με την εφαρμογή</string>
+    <string name="about_menu">Περί..</string>
+    <string name="preferences_menu">Ρυθμίσεις</string>
+    <string name="sync_menu">Συγχρονισμός</string>
+    <string name="version">Έκδοση</string>
+    <string name="author">Δημιουργός</string>
+    <string name="description">Περιγραφή</string>
+            
+</resources>

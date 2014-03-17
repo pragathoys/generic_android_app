@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="author_name">John Marountas</string>
+    <string name="app_name">Generic Android App</string>
+    <string name="app_version">v 0.1 build 16032014</string> 
+    <string name="app_description">A short presentation of the app. The domain of its application and to whome is aimed.</string>    
+    
+    <string name="welcome_msg">Welcome!</string>
+    <string name="about_msg">About the app</string> 
+    <string name="about_menu">About..</string>
+    <string name="preferences_menu">Settings</string>
+    <string name="sync_menu">Sync</string>
+    <string name="version">Version</string>
+    <string name="author">Author</string>
+    <string name="description">Description</string>
+    
+    
+    <color name="white">#ffffff</color>
+    <color name="ice">#eeeeee</color>
+    <color name="black">#000000</color>
+    
+</resources>
