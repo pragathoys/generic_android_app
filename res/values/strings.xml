@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="author_name">John Marountas</string>
+    <string name="author_name">FName Lname</string>
     <string name="app_name">Generic Android App</string>
     <string name="app_version">v 0.1 build 16032014</string> 
     <string name="app_description">A short presentation of the app. The domain of its application and to whome is aimed.</string>    

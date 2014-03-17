@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu  xmlns:android="http://schemas.android.com/apk/res/android" >    
+    <item android:id="@+id/mnu_sync" android:title="@string/sync_menu" ></item>
     <item android:id="@+id/mnu_preferences" android:title="@string/preferences_menu" android:icon="@android:drawable/ic_menu_preferences" ></item>
     <item android:id="@+id/mnu_about" android:title="@string/about_menu" android:icon="@android:drawable/ic_menu_info_details" ></item>
 </menu>

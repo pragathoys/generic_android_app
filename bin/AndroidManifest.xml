@@ -11,9 +11,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity   android:name="About" 
+        <activity   android:name=".lib.activities.About" 
                     android:label="@string/about_msg">
             
         </activity>
+        
+        <activity   android:name=".lib.activities.Preferences" 
+                    android:label="@string/preferences_menu">            
+        </activity>        
     </application>
 </manifest> 
