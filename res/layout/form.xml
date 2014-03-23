@@ -8,24 +8,16 @@
 <TextView  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="@string/welcome_msg" 
+    android:text="Param" 
     android:textColor="@color/black"
     android:background="@color/white"    
     />
+<EditText
+    android:id="@+id/etParam"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
 
-    <Button
-        android:id="@+id/btnViewList"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/view_list"    
-    />
-
-        <Button
-        android:id="@+id/btnNewItem"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/new_item"    
-    />    
+/>
 
 </LinearLayout>
 

@@ -12,5 +12,13 @@
     <string name="version">Έκδοση</string>
     <string name="author">Δημιουργός</string>
     <string name="description">Περιγραφή</string>
+    
+    <string name="view_list">Δείτε τη Λίστα</string>
+    <string name="new_item">Δημιουργία Νέου</string>
+    <string name="update">Ενημέρωση</string>    
+    <string name="delete">Διαγραφή</string>
+    <string name="list">Λίστα</string>
+    <string name="form">Φορμα</string>
+    
             
 </resources>

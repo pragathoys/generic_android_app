@@ -19,5 +19,13 @@
         <activity   android:name=".lib.activities.Preferences" 
                     android:label="@string/preferences_menu">            
         </activity>        
+        
+        <activity   android:name=".lib.activities.List" 
+                    android:label="@string/list">            
+        </activity>                
+        
+        <activity   android:name=".lib.activities.Form" 
+                    android:label="@string/form">            
+        </activity>                                               
     </application>
 </manifest> 

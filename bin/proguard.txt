@@ -4,6 +4,12 @@
 # view AndroidManifest.xml #generated:14
 -keep class com.pragathoys.lib.activities.About { <init>(...); }
 
+# view AndroidManifest.xml #generated:27
+-keep class com.pragathoys.lib.activities.Form { <init>(...); }
+
+# view AndroidManifest.xml #generated:23
+-keep class com.pragathoys.lib.activities.List { <init>(...); }
+
 # view AndroidManifest.xml #generated:19
 -keep class com.pragathoys.lib.activities.Preferences { <init>(...); }
 

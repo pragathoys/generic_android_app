@@ -14,6 +14,14 @@
     <string name="author">Author</string>
     <string name="description">Description</string>
     
+    <string name="view_list">View List</string>
+    <string name="new_item">New Item</string>
+    <string name="list">List</string>
+    <string name="update">Update</string>    
+    <string name="delete">Delete</string>
+    <string name="form">Form</string>
+    
+    
     
     <color name="white">#ffffff</color>
     <color name="ice">#eeeeee</color>
