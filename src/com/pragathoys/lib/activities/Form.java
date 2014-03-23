@@ -10,10 +10,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 import com.pragathoys.R;
-import com.pragathoys.lib.controllers.Db;
+import com.pragathoys.lib.controllers.Crud;
 
 public class Form extends Activity {
-
+    Crud crud;
+    
     private long id = 0;
     private long position = 0;
     private int mode = 1;
@@ -28,6 +29,8 @@ public class Form extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form);
         //Log.d("LOG_APP", "Starting app ...");
+        
+        crud = new Crud("myDB", this);
 
         try {
             id = getIntent().getLongExtra("id", 0);
@@ -37,13 +40,11 @@ public class Form extends Activity {
         position = getIntent().getIntExtra("position", 0);
         mode = getIntent().getIntExtra("mode", 1);
 
-        if (mode == 2) {
-            // Update then load the content of the form
-            Db db = new Db("myDB", this);
-            Cursor c = db.select("SELECT * FROM generic_table WHERE _id=" + id);
+        if (mode == Crud.MODE_UPDATE) {
+            // Update then load the content of the form            
+            Cursor c = crud.load("generic_table", id);
             String param_value = c.getString(c.getColumnIndex("param"));
             ((EditText) findViewById(R.id.etParam)).setText(param_value);
-            db.close();
         }
     }
 
@@ -51,7 +52,6 @@ public class Form extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.formmenu, menu);
-        
         
         if (mode == 2) {
             menu.getItem(0).setTitle(R.string.update);
@@ -67,20 +67,20 @@ public class Form extends Activity {
         if (item.getItemId() == R.id.mnu_update) {
                 String param_value = ((EditText) findViewById(R.id.etParam)).getText().toString();
             
-            if (mode == 1) {
+            if (mode == Crud.MODE_NEW) {
                 Log.d("FORM", "Create item ");
-                Db db = new Db("myDB", this);
-                db.update(new String[]{"INSERT INTO generic_table(param) VALUES('" + param_value + "');"});
-                db.close();
+                
+                crud.add(new String[]{"param"},new String[]{ param_value });
+
                 Intent intent = new Intent();
                 setResult(Activity.RESULT_OK, intent);
                 finish();
 
             } else {
                 Log.d("FORM", "Update item " + id);
-                Db db = new Db("myDB", this);
-                db.update(new String[]{"UPDATE generic_table set param='"+param_value+"' where _id=" + id + ";"});
-                db.close();
+                
+                crud.update(id,new String[]{"param"},new String[]{ param_value });
+
                 Intent intent = new Intent();
                 setResult(Activity.RESULT_OK, intent);
                 finish();
@@ -89,9 +89,8 @@ public class Form extends Activity {
         } else if (item.getItemId() == R.id.mnu_delete) {
             Log.d("FORM", "Delete item " + id);
 
-            Db db = new Db("myDB", this);
-            db.update(new String[]{"delete from generic_table where _id=" + id + ";"});
-            db.close();
+            crud.delete("generic_table",id);
+
             Intent intent = new Intent();
             setResult(Activity.RESULT_OK, intent);
             finish();

@@ -12,24 +12,23 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import com.pragathoys.R;
-import com.pragathoys.lib.controllers.Db;
+import com.pragathoys.lib.controllers.Crud;
 
 /**
  *
  * @author marjohn
  */
 public class List extends ListActivity {
+    Crud crud;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list);
 
-        Db db = new Db("myDB", this);
-        db.init_schema();
+        crud = new Crud("myDB", this);
+        Cursor c = crud.list("generic_table");
 
-        Cursor c = db.select("select * from generic_table");
-        db.close();
         // Set the ListAdapter
         SimpleCursorAdapter sca = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, c, new String[]{"param"}, new int[]{android.R.id.text1});
         setListAdapter(sca);
@@ -43,10 +42,9 @@ public class List extends ListActivity {
         Intent intent = new Intent(this, Form.class);
         intent.putExtra("id", new Long(id));
         intent.putExtra("position", position);
-        int mode = 2; // Edit
-        intent.putExtra("mode", mode);
+        intent.putExtra("mode", Crud.MODE_UPDATE);
 
-        startActivityForResult(intent, mode);
+        startActivityForResult(intent, Crud.MODE_UPDATE);
 
 //    startActivityForResult(i, ACTIVITY_EDIT);       
     }
@@ -55,24 +53,12 @@ public class List extends ListActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
         Log.d("LIST", "Returned from Form:: requestCode: " + requestCode + ",resultCode: " + resultCode);
-        
-        Db db = new Db("myDB", this);
-        Cursor c = db.select("select * from generic_table");
-        db.close();
+
+        Cursor c = crud.list("generic_table");
+
         // Set the ListAdapter
         SimpleCursorAdapter sca = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, c, new String[]{"param"}, new int[]{android.R.id.text1});
         setListAdapter(sca);
-        
-        
-        if (requestCode == 1) {
-            // Make sure the request was successful
-            if (resultCode == RESULT_OK) {
-            // The user picked a contact.
-                // The Intent's data Uri identifies which contact was selected.
-
-                // Do something with the contact here (bigger example below)
-            }
-        }
     }
 
     @Override
@@ -88,11 +74,10 @@ public class List extends ListActivity {
             //Log.d("LOG_APP", "Preferences");
             Intent intent = new Intent(this, Form.class);
 
-            int mode = 1; // New
             intent.putExtra("id", new Long(0));
             intent.putExtra("position", 0);
-            intent.putExtra("mode", mode);
-            startActivityForResult(intent, mode);
+            intent.putExtra("mode", Crud.MODE_NEW);
+            startActivityForResult(intent, Crud.MODE_NEW);
 
             // Retrieve PReferences
             //SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);

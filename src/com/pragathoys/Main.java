@@ -3,9 +3,7 @@ package com.pragathoys;
 import com.pragathoys.lib.activities.About;
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,17 +28,7 @@ public class Main extends Activity
         
         Db db;
         db = new Db("myDB",this);
-        db.init_schema();
-        
-        //db.insert(new String[]{"INSERT INTO generic_table('param') VALUES('param1')"});
-        
-        Cursor c = db.select("SELECT * from generic_table;");
-        int total_rows = c.getCount();
-        Log.d("DB", "total_rows = " + total_rows,null);
-        do{
-            Log.d("DB", "id= " +c.getInt(0)+ ", param = " + c.getString(c.getColumnIndex("param")),null);
-        }while(c.moveToNext());
-                
+        db.init_schema();        
         db.close();
         
         // Add Listener to the View List button
