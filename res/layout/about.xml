@@ -12,10 +12,9 @@
     />
     <TextView 
     android:id="@+id/about_version_lbl"
-    android:layout_width="100dp" 
+    android:layout_width="80dp" 
     android:layout_height="wrap_content"
-    android:text="@string/version"
-    android:background="@color/ice"
+    android:text="@string/version"    
     android:layout_below="@id/about_app_name"
     android:layout_toLeftOf="@+id/about_version"
     android:layout_alignParentLeft="true"
@@ -30,10 +29,9 @@
     />
     <TextView 
     android:id="@+id/about_author_lbl"
-    android:layout_width="100dp" 
+    android:layout_width="80dp" 
     android:layout_height="wrap_content"
     android:text="@string/author"
-    android:background="@color/ice"
     android:layout_below="@id/about_version_lbl"
     android:layout_toLeftOf="@+id/about_version"
     android:layout_alignParentLeft="true"

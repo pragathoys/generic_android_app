@@ -13,7 +13,8 @@ import android.widget.Button;
 import com.pragathoys.lib.activities.Form;
 import com.pragathoys.lib.activities.List;
 import com.pragathoys.lib.controllers.Db;
-import java.util.prefs.Preferences;
+import com.pragathoys.lib.activities.Preferences;
+
 
 public class Main extends Activity
 {

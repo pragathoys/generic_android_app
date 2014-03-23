@@ -1,3 +1,9 @@
+-= v0.2 =-
+1. Added DB Controller and Crud Layer
+2. List Activity
+3. Add/Update/Delete Form
+4. EditText Preference
+
 -= v0.1 =-
 1. Options Menu
 2. About page

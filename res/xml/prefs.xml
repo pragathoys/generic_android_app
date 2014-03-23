@@ -2,4 +2,5 @@
 <PreferenceScreen  xmlns:android="http://schemas.android.com/apk/res/android">
     <CheckBoxPreference android:key="gaa_option_1" android:title="Option 1" android:summary="First option" />
     <CheckBoxPreference android:key="gaa_option_2" android:title="Option 2" android:summary="Second option" />
+    <EditTextPreference android:key="gaa_option_3" android:title="Option 3" android:summary="Third option" />
 </PreferenceScreen>
