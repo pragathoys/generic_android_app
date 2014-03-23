@@ -2,8 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.pragathoys"
       android:versionCode="1"
-      android:versionName="1.0">
-    <application android:label="@string/app_name">
+      android:versionName="1.0"
+>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application 
+        android:label="@string/app_name"
+    >
         <activity android:name="Main"
                   android:label="@string/app_name">
             <intent-filter>
@@ -16,7 +20,7 @@
             
         </activity>
         
-        <activity   android:name=".lib.activities.Preferences" 
+        <activity   android:name=".lib.activities.Prefs" 
                     android:label="@string/preferences_menu">            
         </activity>        
         

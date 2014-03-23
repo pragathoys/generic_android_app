@@ -2,10 +2,12 @@ D:\workshop\android\GenericAndroidApp\bin\classes.dex : \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\BuildConfig.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\About.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\Form.class \
+D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\List$1.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\List.class \
-D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\Preferences.class \
+D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\Prefs.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\controllers\Crud.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\controllers\Db.class \
+D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\net\Rest.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\Main$1.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\Main$2.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\Main.class \

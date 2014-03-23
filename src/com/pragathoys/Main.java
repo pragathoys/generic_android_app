@@ -3,7 +3,10 @@ package com.pragathoys;
 import com.pragathoys.lib.activities.About;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,8 +15,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import com.pragathoys.lib.activities.Form;
 import com.pragathoys.lib.activities.List;
+import com.pragathoys.lib.activities.Prefs;
 import com.pragathoys.lib.controllers.Db;
-import com.pragathoys.lib.activities.Preferences;
+import com.pragathoys.lib.controllers.Crud;
+import com.pragathoys.lib.net.Rest;
+
+
 
 
 public class Main extends Activity
@@ -51,11 +58,10 @@ public class Main extends Activity
            //Log.d("LOG_APP", "Preferences");
             Intent intent = new Intent(Main.this, Form.class);
 
-            int mode = 1; // New
             intent.putExtra("id", new Long(0));
             intent.putExtra("position", 0);
-            intent.putExtra("mode", mode);
-            startActivityForResult(intent, mode);                
+            intent.putExtra("mode", Crud.MODE_NEW);
+            startActivityForResult(intent, Crud.MODE_NEW);                
             }
         
         });        
@@ -81,7 +87,7 @@ public class Main extends Activity
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.mnu_preferences){
             //Log.d("LOG_APP", "Preferences");
-            Intent intent = new Intent(this, Preferences.class);
+            Intent intent = new Intent(this, Prefs.class);
             startActivity(intent);
             
             // Retrieve PReferences
@@ -94,6 +100,24 @@ public class Main extends Activity
             Intent intent = new Intent(this, About.class);
             startActivity(intent);
             
+        }else if(item.getItemId() == R.id.mnu_sync){
+            Log.d("LOG_APP", "Sync");
+//            Intent intent = new Intent(this, About.class);
+//            startActivity(intent);
+
+            try{
+                // Read Preferences
+                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+                String server_ip = settings.getString("gaa_option_3", "192.168.0.1");
+                String api_key = settings.getString("gaa_option_4", "123456789");
+                
+                Rest rest = new Rest(Rest.PROTOCOL_HTTP,server_ip);
+                boolean is_authenticated = rest.authenticate(api_key);
+                Log.d("LOG_APP", "Authenticate is " + is_authenticated);
+                
+            }catch(Exception ex){
+                Log.d("LOG_APP", "ERROR Syncing");
+            }
         }
         return super.onOptionsItemSelected(item); 
     }   

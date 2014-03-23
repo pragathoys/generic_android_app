@@ -36,6 +36,23 @@ public class Crud {
         
         return c;
     }
+
+    public Cursor list(String table_name,String[] fields, String[] values){
+        Cursor c;
+        db = new Db(db_name, activity);
+        String filter_list = "";
+        for(int i=0;i<fields.length;i++){
+            if(filter_list == ""){
+                filter_list = fields[i] + " LIKE '%" + values[i] + "%'";
+            }else{
+                filter_list += " OR " + fields[i] + " LIKE '%" + values[i] + "%'";
+            }
+        }        
+        c = db.select("SELECT * FROM " + table_name + " WHERE " + filter_list);
+        db.close();
+        
+        return c;
+    }
     
     public Cursor load(String table_name, long id){
         Cursor c;

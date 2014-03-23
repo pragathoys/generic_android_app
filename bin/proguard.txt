@@ -1,15 +1,15 @@
-# view AndroidManifest.xml #generated:7
+# view AndroidManifest.xml #generated:11
 -keep class com.pragathoys.Main { <init>(...); }
 
-# view AndroidManifest.xml #generated:14
+# view AndroidManifest.xml #generated:18
 -keep class com.pragathoys.lib.activities.About { <init>(...); }
 
-# view AndroidManifest.xml #generated:27
+# view AndroidManifest.xml #generated:31
 -keep class com.pragathoys.lib.activities.Form { <init>(...); }
 
-# view AndroidManifest.xml #generated:23
+# view AndroidManifest.xml #generated:27
 -keep class com.pragathoys.lib.activities.List { <init>(...); }
 
-# view AndroidManifest.xml #generated:19
--keep class com.pragathoys.lib.activities.Preferences { <init>(...); }
+# view AndroidManifest.xml #generated:23
+-keep class com.pragathoys.lib.activities.Prefs { <init>(...); }
 

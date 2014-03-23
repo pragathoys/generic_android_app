@@ -4,11 +4,14 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import com.pragathoys.R;
@@ -20,6 +23,7 @@ import com.pragathoys.lib.controllers.Crud;
  */
 public class List extends ListActivity {
     Crud crud;
+    SimpleCursorAdapter sca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +34,33 @@ public class List extends ListActivity {
         Cursor c = crud.list("generic_table");
 
         // Set the ListAdapter
-        SimpleCursorAdapter sca = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, c, new String[]{"param"}, new int[]{android.R.id.text1});
+        sca = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, c, new String[]{"param"}, new int[]{android.R.id.text1});
         setListAdapter(sca);
+        
+        // Add action Listener to quick search
+        EditText et = (EditText)findViewById(R.id.etQuickSearch);
+        et.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+                //sca.getFilter().filter(cs);   
+                Cursor c = crud.list("generic_table",new String[]{"param"},new String[]{cs.toString()});
+                sca.changeCursor(c);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                    int arg3) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub                          
+            }
+        });
     }
 
     @Override
@@ -54,11 +83,19 @@ public class List extends ListActivity {
         // Check which request we're responding to
         Log.d("LIST", "Returned from Form:: requestCode: " + requestCode + ",resultCode: " + resultCode);
 
-        Cursor c = crud.list("generic_table");
-
+        Cursor c;
+        EditText et = (EditText)findViewById(R.id.etQuickSearch);
+        if(et.getText().toString()!=""){
+            c = crud.list("generic_table",new String[]{"param"},new String[]{et.getText().toString()});
+        }else{
+            c = crud.list("generic_table");    
+        }
+        
+        sca.changeCursor(c);
+        
         // Set the ListAdapter
-        SimpleCursorAdapter sca = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, c, new String[]{"param"}, new int[]{android.R.id.text1});
-        setListAdapter(sca);
+//        sca = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, c, new String[]{"param"}, new int[]{android.R.id.text1});        
+//        setListAdapter(sca);
     }
 
     @Override
