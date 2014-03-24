@@ -30,7 +30,7 @@ public class Form extends Activity {
         setContentView(R.layout.form);
         //Log.d("LOG_APP", "Starting app ...");
         
-        crud = new Crud("myDB", this);
+        crud = new Crud("myDB2", this);
 
         try {
             id = getIntent().getLongExtra("id", 0);

@@ -19,6 +19,7 @@ import com.pragathoys.lib.activities.Prefs;
 import com.pragathoys.lib.controllers.Db;
 import com.pragathoys.lib.controllers.Crud;
 import com.pragathoys.lib.net.Rest;
+import java.util.Map;
 
 
 
@@ -35,7 +36,7 @@ public class Main extends Activity
         //Log.d("LOG_APP", "Starting app ...");
         
         Db db;
-        db = new Db("myDB",this);
+        db = new Db("myDB2",this);
         db.init_schema();        
         db.close();
         
@@ -109,11 +110,13 @@ public class Main extends Activity
                 // Read Preferences
                 SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
                 String server_ip = settings.getString("gaa_option_3", "192.168.0.1");
-                String api_key = settings.getString("gaa_option_4", "123456789");
+                String server_port = settings.getString("gaa_option_4", "3000");
+                String api_key = settings.getString("gaa_option_5", "123456789");
                 
-                Rest rest = new Rest(Rest.PROTOCOL_HTTP,server_ip);
-                boolean is_authenticated = rest.authenticate(api_key);
-                Log.d("LOG_APP", "Authenticate is " + is_authenticated);
+                Rest rest = new Rest(Rest.PROTOCOL_HTTP,server_ip,server_port);
+                Map<String, String> reply = rest.authenticate(api_key);
+                Log.d("REST", "status " + reply.get("status"));
+                Log.d("REST", "content " + reply.get("content"));
                 
             }catch(Exception ex){
                 Log.d("LOG_APP", "ERROR Syncing");

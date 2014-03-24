@@ -2,8 +2,6 @@ package com.pragathoys.lib.controllers;
 
 import android.app.Activity;
 import android.database.Cursor;
-import static android.view.ViewDebug.RecyclerTraceType.values;
-import com.pragathoys.R.id;
 
 /**
  *

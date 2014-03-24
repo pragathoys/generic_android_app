@@ -65,7 +65,5 @@ public class Db {
     
     public void close(){
         db.close();
-    }
-    
-    
+    }   
 }
