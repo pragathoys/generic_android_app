@@ -1,3 +1,9 @@
+-= v0.3 =-
+1. Quick Search List View
+2. Connect to a server
+3. Authenticate
+4. Alert message
+
 -= v0.2 =-
 1. Added DB Controller and Crud Layer
 2. List Activity

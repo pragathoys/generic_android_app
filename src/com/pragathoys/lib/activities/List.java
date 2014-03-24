@@ -30,7 +30,7 @@ public class List extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list);
 
-        crud = new Crud("myDB", this);
+        crud = new Crud("myDB2", this);
         Cursor c = crud.list("generic_table");
 
         // Set the ListAdapter

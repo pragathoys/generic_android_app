@@ -10,6 +10,7 @@ D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\controllers
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\net\Rest.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\Main$1.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\Main$2.class \
+D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\Main$3.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\Main.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\R$attr.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\R$color.class \

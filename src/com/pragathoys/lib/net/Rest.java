@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class Rest {
     public Rest(String protocol,String server_ip,String server_port) {
         this.protocol = protocol;
         this.server_ip = server_ip;        
-        this.server_port = server_port;
+        this.server_port = server_port.trim();
     }
     
     public Map<String, String> authenticate(String api_key){
@@ -42,11 +43,18 @@ public class Rest {
     
     private String send_cmd(String cmd){
         String response = "";
-        String url_string = protocol + "://" + server_ip + cmd;
+
         URL url = null;
-        try {
-            url = new URL(url_string);
+        try {            
+            if(!server_port.equals("")){
+                int port = Integer.parseInt(server_port);
+                url = new URL(protocol,server_ip,port,cmd);
+            }else{
+                url = new URL(protocol,server_ip,cmd);
+            }            
             URLConnection conn = url.openConnection();
+            conn.setConnectTimeout(10000);
+            conn.setReadTimeout(10000);            
             
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line = "";
@@ -60,6 +68,10 @@ public class Rest {
         } catch (MalformedURLException ex) {
             response = fail_xml_msg("ERROR: Wrong URL for the server");
             Log.d("REST", "MalformedURLException");
+            Logger.getLogger(Rest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SocketTimeoutException ex) {
+            Log.d("REST", "SocketTimeoutException");
+            response = fail_xml_msg("ERROR: Connection to the server timeout");
             Logger.getLogger(Rest.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Log.d("REST", "IOException");
@@ -76,13 +88,36 @@ public class Rest {
 //        parsed_reponse = parsed_reponse.replaceAll("<response>", "");
 //        parsed_reponse = parsed_reponse.replaceAll("</response>", "");
         Matcher matcher;
-        Pattern pattern_status = Pattern.compile("/<status>.*</status>/");
-        Pattern pattern_content = Pattern.compile("/<content>.*</content>/");
+        Pattern pattern_status = Pattern.compile("<status>(.*)</status>");
+        Pattern pattern_content = Pattern.compile("<content>(.*)</content>");
         
-        matcher = pattern_status.matcher(response);
-        reply.put("status", matcher.group(0));
-        matcher = pattern_content.matcher(response);
-        reply.put("content", matcher.group(0));
+        try {
+            matcher = pattern_status.matcher(response);
+            while (matcher.find()) {
+                Log.d("REST", "Start index: " + matcher.start());
+                Log.d("REST", "End index " + matcher.end());
+                Log.d("REST", "group " + matcher.group());
+                String item = matcher.group();
+                item = item.replace("<status>", "");
+                item = item.replace("</status>", "");
+                reply.put("status", item);
+              }            
+            
+            matcher = pattern_content.matcher(response);
+            
+            while (matcher.find()) {
+                Log.d("REST", "Start index: " + matcher.start());
+                Log.d("REST", "End index " + matcher.end());
+                Log.d("REST", "group " + matcher.group());
+                String item = matcher.group();
+                item = item.replace("<content>", "");
+                item = item.replace("</content>", "");                
+                reply.put("content", item);
+              }              
+        } catch (Exception e) {
+            reply.put("status", "fail");
+            reply.put("content", "Could not parse response");
+        }
         
         return reply;
     }
