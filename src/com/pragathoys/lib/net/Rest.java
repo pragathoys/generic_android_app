@@ -23,9 +23,9 @@ public class Rest {
     public final static String PROTOCOL_HTTP = "http";
     public final static String PROTOCOL_HTTPS = "https";
 
-    private String server_ip;
-    private String server_port;
-    private String protocol;
+    private final String server_ip;
+    private final String server_port;
+    private final String protocol;
     
     public Rest(String protocol,String server_ip,String server_port) {
         this.protocol = protocol;
@@ -64,19 +64,16 @@ public class Rest {
             }
             response = content;
             
-            Log.d("REST", "content : " + content);
+//            Log.d("REST", "content : " + content);
         } catch (MalformedURLException ex) {
             response = fail_xml_msg("ERROR: Wrong URL for the server");
-            Log.d("REST", "MalformedURLException");
-            Logger.getLogger(Rest.class.getName()).log(Level.SEVERE, null, ex);
+//            Log.d("REST", "MalformedURLException");
         } catch (SocketTimeoutException ex) {
-            Log.d("REST", "SocketTimeoutException");
+//            Log.d("REST", "SocketTimeoutException");
             response = fail_xml_msg("ERROR: Connection to the server timeout");
-            Logger.getLogger(Rest.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Log.d("REST", "IOException");
-            response = fail_xml_msg("ERROR: Could not connect to the server");
-            Logger.getLogger(Rest.class.getName()).log(Level.SEVERE, null, ex);
+//            Log.d("REST", "IOException");
+            response = fail_xml_msg("ERROR: Could not connect to the server");            
         }
         return response;
     }
@@ -94,9 +91,9 @@ public class Rest {
         try {
             matcher = pattern_status.matcher(response);
             while (matcher.find()) {
-                Log.d("REST", "Start index: " + matcher.start());
-                Log.d("REST", "End index " + matcher.end());
-                Log.d("REST", "group " + matcher.group());
+//                Log.d("REST", "Start index: " + matcher.start());
+//                Log.d("REST", "End index " + matcher.end());
+//                Log.d("REST", "group " + matcher.group());
                 String item = matcher.group();
                 item = item.replace("<status>", "");
                 item = item.replace("</status>", "");
@@ -106,9 +103,9 @@ public class Rest {
             matcher = pattern_content.matcher(response);
             
             while (matcher.find()) {
-                Log.d("REST", "Start index: " + matcher.start());
-                Log.d("REST", "End index " + matcher.end());
-                Log.d("REST", "group " + matcher.group());
+//                Log.d("REST", "Start index: " + matcher.start());
+//                Log.d("REST", "End index " + matcher.end());
+//                Log.d("REST", "group " + matcher.group());
                 String item = matcher.group();
                 item = item.replace("<content>", "");
                 item = item.replace("</content>", "");                

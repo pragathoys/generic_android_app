@@ -5,6 +5,7 @@ D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\List$1.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\List.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\activities\Prefs.class \
+D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\adapters\GridAdapter.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\controllers\Crud.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\controllers\Db.class \
 D:\workshop\android\GenericAndroidApp\bin\classes\com\pragathoys\lib\net\Rest.class \

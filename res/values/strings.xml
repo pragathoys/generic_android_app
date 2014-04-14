@@ -2,7 +2,7 @@
 <resources>
     <string name="author_name">FName Lname</string>
     <string name="app_name">Generic Android App</string>
-    <string name="app_version">v0.2 build 22032014</string> 
+    <string name="app_version">v0.4 build 14042014</string> 
     <string name="app_description">A short presentation of the app. The domain of its application and to whome is aimed.</string>    
     
     <string name="welcome_msg">Welcome!</string>

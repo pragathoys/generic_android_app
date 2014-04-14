@@ -70,7 +70,7 @@ public class Form extends Activity {
             if (mode == Crud.MODE_NEW) {
                 Log.d("FORM", "Create item ");
                 
-                crud.add(new String[]{"param"},new String[]{ param_value });
+                crud.add("generic_table",new String[]{"param"},new String[]{ param_value });
 
                 Intent intent = new Intent();
                 setResult(Activity.RESULT_OK, intent);
@@ -79,7 +79,7 @@ public class Form extends Activity {
             } else {
                 Log.d("FORM", "Update item " + id);
                 
-                crud.update(id,new String[]{"param"},new String[]{ param_value });
+                crud.update("generic_table",id,new String[]{"param"},new String[]{ param_value });
 
                 Intent intent = new Intent();
                 setResult(Activity.RESULT_OK, intent);
