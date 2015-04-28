@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/marjohn/AndroidStudioProjects/generic_app_studio/app/src/main/res/values-el/strings.xml -->
+    <eat-comment/>
+    <string name="about_menu">Περί..</string>
+    <string name="about_msg">Σχετικά με την εφαρμογή</string>
+    <string name="app_description">Εδώ μπαίνει μια σύντομη περιγραφή για την εφαρμογή. Ποιό είναι το πεδίο εφαρμογών της και που απευθύνεται.</string>
+    <string name="app_name">Γενική Εφαρμογή για Android</string>
+    <string name="author">Δημιουργός</string>
+    <string name="author_name">Όνομα Επώνυμο</string>
+    <string name="delete">Διαγραφή</string>
+    <string name="description">Περιγραφή</string>
+    <string name="form">Φορμα</string>
+    <string name="list">Λίστα</string>
+    <string name="new_item">Δημιουργία Νέου</string>
+    <string name="preferences_menu">Ρυθμίσεις</string>
+    <string name="sync_menu">Συγχρονισμός</string>
+    <string name="update">Ενημέρωση</string>
+    <string name="version">Έκδοση</string>
+    <string name="view_list">Δείτε τη Λίστα</string>
+    <string name="welcome_msg">Καλώς ήλθατε!</string>
+</resources>

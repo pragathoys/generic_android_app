@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/marjohn/AndroidStudioProjects/generic_app_studio/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <color name="black">#000000</color>
+    <color name="ice">#eeeeee</color>
+    <color name="white">#ffffff</color>
+    <string name="about_menu">About..</string>
+    <string name="about_msg">About the app</string>
+    <string name="app_description">A short presentation of the app. The domain of its application and to whome is aimed.</string>
+    <string name="app_name">Generic Android App</string>
+    <string name="app_version">v0.4 build 14042014</string>
+    <string name="author">Author</string>
+    <string name="author_name">FName Lname</string>
+    <string name="delete">Delete</string>
+    <string name="description">Description</string>
+    <string name="form">Form</string>
+    <string name="list">List</string>
+    <string name="new_item">New Item</string>
+    <string name="preferences_menu">Settings</string>
+    <string name="sync_menu">Sync</string>
+    <string name="update">Update</string>
+    <string name="version">Version</string>
+    <string name="view_list">View List</string>
+    <string name="welcome_msg">Welcome!</string>
+</resources>

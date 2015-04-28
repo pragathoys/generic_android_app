@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu  xmlns:android="http://schemas.android.com/apk/res/android" >    
+    <item android:id="@+id/mnu_update" android:title="@string/update" ></item>
+    <item android:id="@+id/mnu_delete" android:title="@string/delete" ></item>
+</menu>
+<!-- From: file:/home/marjohn/AndroidStudioProjects/generic_app_studio/app/src/main/res/menu/formmenu.xml -->

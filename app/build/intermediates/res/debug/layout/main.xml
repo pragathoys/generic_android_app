@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ice"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/welcome_msg" 
+    android:textColor="@color/black"
+    android:background="@color/white"    
+    />
+
+    <Button
+        android:id="@+id/btnViewList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_list"    
+    />
+
+        <Button
+        android:id="@+id/btnNewItem"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_item"    
+    />    
+
+</LinearLayout>
+
+<!-- From: file:/home/marjohn/AndroidStudioProjects/generic_app_studio/app/src/main/res/layout/main.xml -->
