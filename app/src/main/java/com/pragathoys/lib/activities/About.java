@@ -13,5 +13,6 @@ public class About extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
         Log.d("LOG_APP", "About Activity ...");
-    }    
+    }
+
 }
